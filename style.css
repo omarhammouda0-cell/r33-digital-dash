@@ -1,0 +1,338 @@
+/* ─────────────────────────────────────────
+   R33 DIGITAL DASH — style.css
+   A good place to experiment and learn.
+   Every section is labelled so you know
+   exactly what each block of CSS controls.
+───────────────────────────────────────── */
+
+
+/* ── GLOBAL RESET & BASE STYLES ── */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0c0f;
+  color: #c8dff0;
+  font-family: 'Share Tech Mono', monospace;
+
+  /* stack header, main, footer top to bottom */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* ── HEADER ── */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  background-color: #0d1017;
+  border-bottom: 1px solid #1a2030;
+}
+
+.car-title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: #00c8ff;
+}
+
+.ecu-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: #3a5070;
+}
+
+.status {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: #00ff88;
+}
+
+
+/* ── MAIN LAYOUT ── */
+/* Three columns side by side */
+
+main {
+  flex: 1;
+  display: flex;
+  gap: 1px;
+  background-color: #1a2030;
+  padding: 1px;
+}
+
+
+/* ── CLUSTER (each column) ── */
+
+.cluster {
+  background-color: #0d1017;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 16px;
+}
+
+.cluster-left  { flex: 1; }
+.cluster-right { flex: 1; }
+.cluster-centre {
+  flex: 1.6;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+
+/* ── INDIVIDUAL GAUGE ── */
+
+.gauge {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px;
+  background-color: #0a0c10;
+  border: 1px solid #1a2030;
+  border-radius: 4px;
+}
+
+.gauge-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: #3a5070;
+  text-transform: uppercase;
+}
+
+.gauge-value {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.gauge-unit {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: #3a5070;
+}
+
+.gauge-range {
+  font-size: 0.5rem;
+  color: #2a3a50;
+  letter-spacing: 0.05em;
+}
+
+
+/* ── BAR GAUGE ── */
+/* The grey background track */
+
+.gauge-bar {
+  height: 6px;
+  background-color: #1a2030;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* The coloured fill inside the bar */
+/* Change the width with style="width: XX%;" in the HTML */
+
+.gauge-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+
+/* ── VALUE COLOURS ── */
+/* Apply these classes to .gauge-value and .gauge-fill */
+
+.cool  { color: #00c8ff; background-color: #00c8ff; }
+.warn  { color: #ff6a00; background-color: #ff6a00; }
+.danger{ color: #ff1f1f; background-color: #ff1f1f; }
+.afr   { background-color: #00ff88; }
+.tps   { background-color: #00c8ff; }
+
+/* Fix: value text colour overrides */
+.gauge-value.cool   { color: #00c8ff; background-color: transparent; }
+.gauge-value.warn   { color: #ff6a00; background-color: transparent; }
+.gauge-value.danger { color: #ff1f1f; background-color: transparent; }
+
+
+/* ── RPM DISPLAY ── */
+
+.rpm-display {
+  width: 100%;
+  background-color: #0a0c10;
+  border: 1px solid #1a2030;
+  border-radius: 4px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.rpm-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  color: #3a5070;
+}
+
+.rpm-value {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: #00c8ff;
+  line-height: 1;
+}
+
+.rpm-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #1a2030;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.rpm-fill {
+  height: 100%;
+  border-radius: 5px;
+  background-color: #00c8ff;
+}
+
+.rpm-marks {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2px;
+  font-size: 0.65rem;
+  color: #3a5070;
+}
+
+.rpm-marks .redline {
+  color: #ff1f1f;
+}
+
+.rpm-range {
+  font-size: 0.5rem;
+  color: #2a3a50;
+  letter-spacing: 0.08em;
+}
+
+
+/* ── CENTRE ROW (speed, gear, boost) ── */
+
+.centre-row {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.gauge-speed,
+.gauge-boost {
+  flex: 1;
+  align-items: center;
+  text-align: center;
+}
+
+.gauge-speed .gauge-value,
+.gauge-boost .gauge-value {
+  font-size: 2.2rem;
+}
+
+
+/* ── GEAR BOX ── */
+
+.gear-box {
+  background-color: #0a0c10;
+  border: 1px solid #1a2030;
+  border-radius: 4px;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.gear-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: #3a5070;
+  text-transform: uppercase;
+}
+
+.gear-value {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #c8dff0;
+  line-height: 1;
+}
+
+
+/* ── FOOTER WARNING LIGHTS ── */
+
+footer {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 24px;
+  background-color: #0d1017;
+  border-top: 1px solid #1a2030;
+}
+
+.warning-light {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  padding: 5px 12px;
+  border-radius: 2px;
+  border: 1px solid #1a2030;
+  text-transform: uppercase;
+}
+
+/* Off = dim and barely visible */
+.warning-light.off {
+  color: #1a2030;
+  border-color: #1a2030;
+}
+
+/* Active warning = orange */
+.warning-light.active-warn {
+  color: #ff6a00;
+  border-color: #ff6a00;
+}
+
+/* Active danger = red */
+.warning-light.active-danger {
+  color: #ff1f1f;
+  border-color: #ff1f1f;
+}
+
+
+/* ─────────────────────────────────────────
+   THINGS TO TRY AS YOU LEARN:
+
+   1. Change a gauge value in index.html
+      and update the bar width to match
+
+   2. Change .cool colour to something else
+      and watch every gauge update at once
+
+   3. Add a new .gauge block in index.html
+      and it will automatically use these styles
+
+   4. Change body background-color to see
+      how the whole theme shifts
+
+   5. Try changing font-family on .rpm-value
+      to see how much fonts affect the feel
+───────────────────────────────────────── */

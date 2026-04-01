@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R33 Digital Dash</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <span class="car-title">R33 SKYLINE</span>
+    <span class="ecu-label">RB25DET // MAXX ECU SPORT</span>
+    <span class="status">● CONNECTED</span>
+  </header>
+
+  <!-- ── MAIN GAUGE CLUSTER ── -->
+  <main>
+
+    <!-- LEFT CLUSTER -->
+    <section class="cluster cluster-left">
+
+      <div class="gauge">
+        <div class="gauge-label">COOLANT TEMP</div>
+        <div class="gauge-value cool">88°C</div>
+        <div class="gauge-bar">
+          <div class="gauge-fill cool" style="width: 73%;"></div>
+        </div>
+        <div class="gauge-range">0°C ———————— 120°C</div>
+      </div>
+
+      <div class="gauge">
+        <div class="gauge-label">OIL TEMP</div>
+        <div class="gauge-value cool">91°C</div>
+        <div class="gauge-bar">
+          <div class="gauge-fill cool" style="width: 76%;"></div>
+        </div>
+        <div class="gauge-range">0°C ———————— 120°C</div>
+      </div>
+
+      <div class="gauge">
+        <div class="gauge-label">OIL PRESSURE</div>
+        <div class="gauge-value cool">3.8 bar</div>
+        <div class="gauge-bar">
+          <div class="gauge-fill cool" style="width: 63%;"></div>
+        </div>
+        <div class="gauge-range">0 bar ————————— 6 bar</div>
+      </div>
+
+      <div class="gauge">
+        <div class="gauge-label">BATTERY</div>
+        <div class="gauge-value cool">14.2v</div>
+        <div class="gauge-bar">
+          <div class="gauge-fill cool" style="width: 80%;"></div>
+        </div>
+        <div class="gauge-range">10v ——————————— 16v</div>
+      </div>
+
+    </section>
+
+    <!-- CENTRE CLUSTER -->
+    <section class="cluster cluster-centre">
+
+      <div class="rpm-display">
+        <div class="rpm-label">RPM</div>
+        <div class="rpm-value">4500</div>
+        <div class="rpm-bar">
+          <div class="rpm-fill" style="width: 58%;"></div>
+        </div>
+        <div class="rpm-marks">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span class="redline">7</span>
+          <span class="redline">8</span>
+        </div>
+        <div class="rpm-range">x1000 RPM — REDLINE 7200</div>
+      </div>
+
+      <div class="centre-row">
+
+        <div class="gauge gauge-speed">
+          <div class="gauge-label">SPEED</div>
+          <div class="gauge-value cool">112</div>
+          <div class="gauge-unit">KM/H</div>
+        </div>
+
+        <div class="gear-box">
+          <div class="gear-label">GEAR</div>
+          <div class="gear-value">3</div>
+        </div>
+
+        <div class="gauge gauge-boost">
+          <div class="gauge-label">BOOST</div>
+          <div class="gauge-value cool">12.4</div>
+          <div class="gauge-unit">PSI</div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- RIGHT CLUSTER -->
+    <section class="cluster cluster-right">
+
+      <div class="gauge">
+        <div class="gauge-label">AFR / LAMBDA</div>
+        <div class="gauge-value cool">13.8</div>
+        <div class="gauge-bar">
+          <div class="gauge-fill afr" style="width: 60%;"></div>
+        </div>
+        <div class="gauge-range">Rich 10 ——— Stoich ——— 16 Lean</div>
+      </div>
+
+      <div class="gauge">
+        <div class="gauge-label">INTAKE AIR TEMP</div>
+        <div class="gauge-value cool">34°C</div>
+        <div class="gauge-bar">
+          <div class="gauge-fill cool" style="width: 42%;"></div>
+        </div>
+        <div class="gauge-range">0°C ———————————— 80°C</div>
+      </div>
+
+      <div class="gauge">
+        <div class="gauge-label">THROTTLE POS</div>
+        <div class="gauge-value cool">68%</div>
+        <div class="gauge-bar">
+          <div class="gauge-fill tps" style="width: 68%;"></div>
+        </div>
+        <div class="gauge-range">0% ————————————— 100%</div>
+      </div>
+
+      <div class="gauge">
+        <div class="gauge-label">FUEL LEVEL</div>
+        <div class="gauge-value warn">38%</div>
+        <div class="gauge-bar">
+          <div class="gauge-fill warn" style="width: 38%;"></div>
+        </div>
+        <div class="gauge-range">Empty ————————————— Full</div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER WARNING LIGHTS ── -->
+  <footer>
+    <div class="warning-light off">CHECK ENGINE</div>
+    <div class="warning-light off">LOW OIL</div>
+    <div class="warning-light active-warn">LOW FUEL</div>
+    <div class="warning-light off">HIGH TEMP</div>
+    <div class="warning-light off">KNOCK</div>
+    <div class="warning-light off">TRACTION</div>
+  </footer>
+
+</body>
+</html>
