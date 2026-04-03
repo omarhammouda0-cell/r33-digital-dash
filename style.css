@@ -43,7 +43,7 @@ header {
   font-weight: 700;
   font-size: 1rem;
   letter-spacing: 0.2em;
-  color: #00c8ff;
+  color: #ff1f1f ;
 }
 
 .ecu-label {
@@ -152,16 +152,16 @@ main {
 /* ── VALUE COLOURS ── */
 /* Apply these classes to .gauge-value and .gauge-fill */
 
-.cool  { color: #00c8ff; background-color: #00c8ff; }
+.cool  { color: #ff1f1f ; background-color: #ff1f1f ; }
 .warn  { color: #ff6a00; background-color: #ff6a00; }
 .danger{ color: #ff1f1f; background-color: #ff1f1f; }
-.afr   { background-color: #00ff88; }
-.tps   { background-color: #00c8ff; }
+.afr   { background-color: #1eff00; }
+.tps   { background-color: #ff1f1f ; }
 
 /* Fix: value text colour overrides */
-.gauge-value.cool   { color: #00c8ff; background-color: transparent; }
+.gauge-value.cool   { color: #ff0000; background-color: transparent; }
 .gauge-value.warn   { color: #ff6a00; background-color: transparent; }
-.gauge-value.danger { color: #ff1f1f; background-color: transparent; }
+.gauge-value.danger { color: #1fadff; background-color: transparent; }
 
 
 /* ── RPM DISPLAY ── */
@@ -188,7 +188,7 @@ main {
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
   font-size: 3.5rem;
-  color: #00c8ff;
+  color: #ff1f1f ;
   line-height: 1;
 }
 
@@ -203,7 +203,7 @@ main {
 .rpm-fill {
   height: 100%;
   border-radius: 5px;
-  background-color: #00c8ff;
+  background-color: #ff1f1f ;
 }
 
 .rpm-marks {
