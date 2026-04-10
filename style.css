@@ -15,7 +15,7 @@
 }
 
 body {
-  background-color: #0a0c0f;
+  background-color: #0a0f0f;
   color: #c8dff0;
   font-family: 'Share Tech Mono', monospace;
 
@@ -185,7 +185,7 @@ main {
 }
 
 .rpm-value {
-  font-family: 'Orbitron', sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 700;
   font-size: 3.5rem;
   color: #ff1f1f ;
@@ -288,8 +288,46 @@ footer {
   padding: 10px 24px;
   background-color: #0d1017;
   border-top: 1px solid #1a2030;
+  /* ── ERROR CODES ── */
+
+.error-codes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
+.error-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: #3a5070;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.error-list {
+  display: flex;
+  gap: 20px;
+}
+
+.error-code {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  display: none;
+}
+
+/* Active fault = red, matches .active-danger */
+.error-code.active {
+  display: inline;
+  color: #ff1f1f;
+}
+
+/* No faults = dim green, matches .status in header */
+.error-code.no-fault.active {
+  display: inline;
+  color: #00ff88;
+}
+}
 .warning-light {
   font-size: 0.55rem;
   letter-spacing: 0.12em;

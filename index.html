@@ -24,41 +24,21 @@
 
       <div class="gauge">
         <div class="gauge-label">COOLANT TEMP</div>
-        <div class="gauge-value warn">105°C</div>
+        <div class="gauge-value" id="coolant-value">105°C</div>
         <div class="gauge-bar">
-          <div class="gauge-fill cool" style="width: 87.5%;"></div>
+          <div class="gauge-fill" id="coolant-fill" style="width: 87.5%;"></div>
         </div>
         <div class="gauge-range">0°C ———————— 120°C</div>
-      </div>
-
-      <div class="gauge">
-        <div class="gauge-label">OIL TEMP</div>
-        <div class="gauge-value cool">91°C</div>
-        <div class="gauge-bar">
-          <div class="gauge-fill cool" style="width: 76%;"></div>
-        </div>
-        <div class="gauge-range">0°C ———————— 120°C</div>
-      </div>
-
-      <div class="gauge">
-        <div class="gauge-label">OIL PRESSURE</div>
-        <div class="gauge-value cool">3.8 bar</div>
-        <div class="gauge-bar">
-          <div class="gauge-fill cool" style="width: 63%;"></div>
-        </div>
-        <div class="gauge-range">0 bar ————————— 6 bar</div>
       </div>
 
       <div class="gauge">
         <div class="gauge-label">BATTERY</div>
-        <div class="gauge-value cool">14.2v</div>
+        <div class="gauge-value" id="battery-value">14.2v</div>
         <div class="gauge-bar">
-          <div class="gauge-fill cool" style="width: 80%;"></div>
+          <div class="gauge-fill" id="battery-fill" style="width: 80%;"></div>
         </div>
         <div class="gauge-range">10v ——————————— 16v</div>
       </div>
-
-      
 
     </section>
 
@@ -67,9 +47,9 @@
 
       <div class="rpm-display">
         <div class="rpm-label">RPM</div>
-        <div class="rpm-value">4500</div>
+        <div class="rpm-value" id="rpm-value">4500</div>
         <div class="rpm-bar">
-          <div class="rpm-fill" style="width: 58%;"></div>
+          <div class="rpm-fill" id="rpm-fill" style="width: 58%;"></div>
         </div>
         <div class="rpm-marks">
           <span>1</span>
@@ -84,23 +64,22 @@
         <div class="rpm-range">x1000 RPM — REDLINE 7200</div>
       </div>
 
+      <!-- Boost and TPS sit side by side below RPM -->
       <div class="centre-row">
-
-        <div class="gauge gauge-speed">
-          <div class="gauge-label">SPEED</div>
-          <div class="gauge-value cool">112</div>
-          <div class="gauge-unit">KM/H</div>
-        </div>
-
-        <div class="gear-box">
-          <div class="gear-label">GEAR</div>
-          <div class="gear-value">3</div>
-        </div>
 
         <div class="gauge gauge-boost">
           <div class="gauge-label">BOOST</div>
-          <div class="gauge-value cool">12.4</div>
+          <div class="gauge-value" id="boost-value">12.4</div>
           <div class="gauge-unit">PSI</div>
+        </div>
+
+        <div class="gauge">
+          <div class="gauge-label">THROTTLE POS</div>
+          <div class="gauge-value" id="tps-value">68%</div>
+          <div class="gauge-bar">
+            <div class="gauge-fill tps" id="tps-fill" style="width: 68%;"></div>
+          </div>
+          <div class="gauge-range">0% ————————— 100%</div>
         </div>
 
       </div>
@@ -112,53 +91,40 @@
 
       <div class="gauge">
         <div class="gauge-label">AFR / LAMBDA</div>
-        <div class="gauge-value cool">13.8</div>
+        <div class="gauge-value" id="afr-value">13.8</div>
         <div class="gauge-bar">
-          <div class="gauge-fill afr" style="width: 60%;"></div>
+          <div class="gauge-fill afr" id="afr-fill" style="width: 60%;"></div>
         </div>
         <div class="gauge-range">Rich 10 ——— Stoich ——— 16 Lean</div>
       </div>
 
       <div class="gauge">
         <div class="gauge-label">INTAKE AIR TEMP</div>
-        <div class="gauge-value cool">34°C</div>
+        <div class="gauge-value" id="iat-value">34°C</div>
         <div class="gauge-bar">
-          <div class="gauge-fill cool" style="width: 42%;"></div>
+          <div class="gauge-fill" id="iat-fill" style="width: 42%;"></div>
         </div>
         <div class="gauge-range">0°C ———————————— 80°C</div>
-      </div>
-
-      <div class="gauge">
-        <div class="gauge-label">THROTTLE POS</div>
-        <div class="gauge-value cool">68%</div>
-        <div class="gauge-bar">
-          <div class="gauge-fill tps" style="width: 68%;"></div>
-        </div>
-        <div class="gauge-range">0% ————————————— 100%</div>
-      </div>
-
-      <div class="gauge">
-        <div class="gauge-label">FUEL LEVEL</div>
-        <div class="gauge-value warn">38%</div>
-        <div class="gauge-bar">
-          <div class="gauge-fill warn" style="width: 38%;"></div>
-        </div>
-        <div class="gauge-range">Empty ————————————— Full</div>
       </div>
 
     </section>
 
   </main>
 
-  <!-- ── FOOTER WARNING LIGHTS ── -->
+  <!-- ── FOOTER ── -->
   <footer>
-    <div class="warning-light off">CHECK ENGINE</div>
-    <div class="warning-light off">LOW OIL</div>
-    <div class="warning-light active-warn">LOW FUEL</div>
-    <div class="warning-light off">HIGH TEMP</div>
-    <div class="warning-light off">KNOCK</div>
-    <div class="warning-light off">TRACTION</div>
+    <div class="error-codes">
+      <span class="error-label">ECU FAULTS</span>
+      <div class="error-list">
+        <span class="error-code" id="fault-coolant">P0217 — Coolant Overtemp</span>
+        <span class="error-code" id="fault-battery">P0562 — Battery Voltage Low</span>
+        <span class="error-code" id="fault-boost">P0234 — Boost Overboost</span>
+        <span class="error-code no-fault">NO FAULTS</span>
+      </div>
+    </div>
   </footer>
+
+  <script src="app.js"></script>
 
 </body>
 </html>
