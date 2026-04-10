@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ── BUILD SEGMENTS ──
   const SEGS  = 40;
-  const MIN_H = 8;
-  const MAX_H = 50;
+  const MIN_H = 12;
+  const MAX_H = 80;
 
 function segHeight(i) {
   const t = i / (SEGS - 1);
