@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ── SELECT ──
   const rpmValue     = document.getElementById('rpm-value');
-  const rpmFill      = document.getElementById('rpm-fill');
+  const rpmSegRow    = document.getElementById('rpm-seg-row');
   const coolantValue = document.getElementById('coolant-value');
   const coolantFill  = document.getElementById('coolant-fill');
   const batteryValue = document.getElementById('battery-value');
@@ -18,6 +18,24 @@ document.addEventListener('DOMContentLoaded', function() {
   const faultBattery = document.getElementById('fault-battery');
   const faultBoost   = document.getElementById('fault-boost');
   const noFault      = document.querySelector('.no-fault');
+
+
+  // ── BUILD SEGMENTS ──
+  const SEGS  = 40;
+  const MIN_H = 8;
+  const MAX_H = 50;
+
+function segHeight(i) {
+  const t = i / (SEGS - 1);
+  const curved = t * t * t;
+  return Math.round(MIN_H + (curved * (MAX_H - MIN_H)));
+}
+  for (let i = 0; i < SEGS; i++) {
+    const seg = document.createElement('div');
+    seg.className = 'seg';
+    seg.style.height = segHeight(i) + 'px';
+    rpmSegRow.appendChild(seg);
+  }
 
 
   // ── HELPER — colour ──
@@ -70,8 +88,20 @@ document.addEventListener('DOMContentLoaded', function() {
     iatValue.textContent     = iat + '°C';
     tpsValue.textContent     = tps + '%';
 
+    // RPM segments
+    const segs   = rpmSegRow.querySelectorAll('.seg');
+    const filled = Math.round((rpm / 8000) * SEGS);
+    segs.forEach(function(seg, i) {
+      seg.className    = 'seg';
+      seg.style.height = segHeight(i) + 'px';
+      if (i < filled) {
+        if (i >= 32)      seg.classList.add('on-red');
+        else if (i >= 24) seg.classList.add('on-yellow');
+        else              seg.classList.add('on-green');
+      }
+    });
+
     // Bars
-    setBar(rpmFill,     rpm,     8000);
     setBar(coolantFill, coolant, 120);
     setBar(batteryFill, battery, 16);
     setBar(afrFill,     afr,     16);
@@ -79,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setBar(tpsFill,     tps,     100);
 
     // Colours
-    setColour(rpmValue,     rpm,     3000, 6000);
+    setColour(rpmValue,     rpm,     6000, 6000);
     setColour(coolantValue, coolant, 95,   110);
     setColour(batteryValue, battery, 11,   10.5);
     setColour(boostValue,   boost,   15,   18);

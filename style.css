@@ -152,19 +152,40 @@ main {
 /* ── VALUE COLOURS ── */
 /* Apply these classes to .gauge-value and .gauge-fill */
 
-.cool  { color: #ff1f1f ; background-color: #ff1f1f ; }
-.warn  { color: #ff6a00; background-color: #ff6a00; }
-.danger{ color: #ff1f1f; background-color: #ff1f1f; }
+.cool  { color: #00ff88; }
+.warn  { color: #ffbb00; }
+.danger{ color: #ff1f1f; }
+
 .afr   { background-color: #1eff00; }
 .tps   { background-color: #ff1f1f ; }
 
 /* Fix: value text colour overrides */
-.gauge-value.cool   { color: #ff0000; background-color: transparent; }
+.gauge-value.cool   { color: #00ff88; background-color: transparent; }
 .gauge-value.warn   { color: #ff6a00; background-color: transparent; }
 .gauge-value.danger { color: #1fadff; background-color: transparent; }
 
 
 /* ── RPM DISPLAY ── */
+.seg-row {
+  display: flex;
+  gap: 3px;
+  width: 100%;
+  align-items: flex-end;
+  height: 50px;
+  margin: 8px 0;
+}
+
+.seg {
+  flex: 1;
+  height: 14px;
+  border-radius: 2px;
+  background: #1a2030;
+  transition: background 0.15s ease;
+}
+
+.seg.on-green  { background: #00ff88; }
+.seg.on-yellow { background: #ffcc00; }
+.seg.on-red    { background: #ff1f1f; }
 
 .rpm-display {
   width: 100%;
@@ -224,7 +245,9 @@ main {
   color: #2a3a50;
   letter-spacing: 0.08em;
 }
-
+.rpm-value.cool   { color: #00ff88; }
+.rpm-value.warn   { color: #ff6a00; }
+.rpm-value.danger { color: #ff1f1f; }
 
 /* ── CENTRE ROW (speed, gear, boost) ── */
 
