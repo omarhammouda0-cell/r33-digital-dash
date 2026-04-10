@@ -78,6 +78,7 @@ function segHeight(i) {
     let afr     = +(Math.random() * 6 + 10).toFixed(1);
     let iat     = Math.round(Math.random() * 80);
     let tps     = Math.round(Math.random() * 100);
+    
 
     // Push to display
     rpmValue.textContent     = rpm;
@@ -110,7 +111,7 @@ function segHeight(i) {
 
     // Colours
     setColour(rpmValue,     rpm,     6000, 6000);
-    setColour(coolantValue, coolant, 95,   110);
+    setColour(coolantValue, coolant, 100,   110);
     setColour(batteryValue, battery, 11,   10.5);
     setColour(boostValue,   boost,   15,   18);
     setColour(afrValue,     afr,     14,   15);
@@ -118,7 +119,7 @@ function segHeight(i) {
     setColour(tpsValue,     tps,     70,   90);
 
     // Faults
-    showFaults(coolant > 110, battery < 11, boost > 18);
+    showFaults(coolant > 100, battery < 12, boost > 15);
   }
 
   setInterval(updateDash, 800);
